@@ -1,6 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Lucida Sans Unicode'
 }
 body{
     background-color: #222222;
@@ -21,7 +22,21 @@ body{
     width: 80px;
     border-radius: 5px;
     background-color: #555555;
-    padding: 10%;
+    padding: 1rem;
+    text-align: center;
     color: white;
     font-size: 40px;
+    transition: translate 500ms ease, scale 0.5s linear;
+}
+.correctLetter{
+    background-color: #3bae41
+}
+.correctLetterWrongPlace{
+    background-color: #a6b223
+}
+.scaleUp{
+    scale: 1.1;
+}
+.scaleDown{
+    scale: 1;
 }

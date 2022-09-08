@@ -6,13 +6,13 @@ const wordsTab=[
     'mouth',
     'phone',
     'swing',
-'cramp',
-'bones',
-'screw',
-'sword',
-'flame',
-'death',
-'mouse'
+    'cramp',
+    'bones',
+    'screw',
+    'sword',
+    'flame',
+    'death',
+    'mouse'
 ]
 
 
@@ -41,22 +41,37 @@ const inputLetter = function(letter){
     currentCol++
     classCode = "row"+currentRow+"col"+currentCol
     box = document.querySelector(`.${classCode}`)
-    box.innerHTML = letter
+    box.innerHTML = letter.toUpperCase()
     letterObj = {char: letter, currBox: classCode}
     userWord.push(letterObj)
 }
 
 const validation = function(){
-    console.log("waliduję")
-    userWord.forEach(({char, currBox})=>{
-        console.log(char, currBox)
-    })
+    for(let i=0; i<5; i++){
+        userWord.forEach(({char, currBox})=>{
+            let columnNumb = parseInt(currBox[7])
+            console.log(columnNumb)
+            if(char===word[i] && i+1===columnNumb){
+                let chosenBox = document.querySelector(`.${currBox}`)
+                chosenBox.classList.toggle("correctLetter")
+                chosenBox.classList.toggle("scaleUp")
+                setTimeout(()=>{chosenBox.classList.toggle("scaleUp"),chosenBox.classList.toggle("scaleDown")}, 500);
+            }else if(char===word[i] && i+1!==columnNumb){
+                let chosenBox = document.querySelector(`.${currBox}`)
+                chosenBox.classList.toggle("correctLetterWrongPlace")
+                chosenBox.classList.toggle("scaleUp")
+                setTimeout(()=>{chosenBox.classList.toggle("scaleUp"),chosenBox.classList.toggle("scaleDown")}, 500);
+            }
+        })
+    }
 }
+
 
 const funcRand = ()=>{ 
     return wordsTab[Math.floor(Math.random()*14)]
 }
 const word = funcRand()
+console.log(word)
 
 document.addEventListener('keydown', (event) => {
     let name = event.key
