@@ -10,6 +10,7 @@ body{
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    padding: 20px;
 }
 .row{
     display: flex;
@@ -26,7 +27,10 @@ body{
     text-align: center;
     color: white;
     font-size: 40px;
-    transition: translate 500ms ease, scale 0.5s linear;
+    transition: translate 500ms ease, scale 0.25s linear;
+}
+p{
+    margin: 0;
 }
 .correctLetter{
     background-color: #3bae41
@@ -39,4 +43,66 @@ body{
 }
 .scaleDown{
     scale: 1;
+}
+#overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+h1{
+    font-size: 2rem;
+}
+.play-again-button{
+    border: none;
+    width: 60%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+}
+.close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.modal{
+    color: white;
+    font-size: 1.25rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(33,33,33);
+    width: 300px;
+    max-width: 60%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+#overlay{
+    transition: 200ms ease-in-out;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
 }
